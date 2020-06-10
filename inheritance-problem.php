@@ -29,7 +29,13 @@ class Produk
   public function getInfoLengkap()
   {
     // Komik : Naruto | Mashashi Kishimoto, Shonen Jump (Rp. 30000) - 100 Halaman.
-    $str = "{$this->tipe} : {$this->judul} | {$this->getInfoLengkap()} (Rp. {$this->harga}) ";
+    $str = "{$this->tipe} : {$this->judul} | {$this->getLabel()} (Rp. {$this->harga}) ";
+    if ($this->tipe == "Komik") {
+      $str .= " - {$this->jmlHalaman} Halaman.";
+    } else if ($this->tipe == "Game") {
+      $str .= " ~ {$this->waktuMain} Jam.";
+    }
+    return $str;
   }
 }
 
@@ -44,9 +50,6 @@ class CetakInfoProduk
 $produk1 = new Produk("Naruto", "Masasi Kishimoto", "shonen jump", 300000, 100, 0, "Komik");
 $produk2 = new Produk("Uncharted", "Neil Druckman", "Sony Computer", 250000, 0, 50, "Game");
 
-//Komik : Masasi Kishimoto, Masasi Kishimoto
-//Game : Neil Druckman, Neil Druckman
-//Naruto | Masasi Kishimoto, Masasi Kishimoto (Rp. 300000)
-
-// Komik : Naruto | Mashashi Kishimoto, Shonen Jump (Rp. 30000) - 100 Halaman.
-// Game : Uncharted | Neil Druckman, Sony Computer (Rp. 25000) ~ 50 Jam.
+echo $produk1->getInfoLengkap();
+echo "<br>";
+echo $produk2->getInfoLengkap();
