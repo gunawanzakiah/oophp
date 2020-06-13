@@ -6,18 +6,15 @@ class Produk
     $judul,
     $penulis,
     $penerbit,
-    $harga,
-
-    $waktuMain;
+    $harga;
 
 
-  public function __construct($judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0, $waktuMain = 0)
+  public function __construct($judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0)
   {
     $this->judul = $judul;
     $this->penulis = $penulis;
     $this->penerbit = $penulis;
     $this->harga = $harga;
-    $this->waktuMain = $waktuMain;
   }
   public function getLabel()
   {
@@ -36,7 +33,7 @@ class Komik extends Produk
 
   public function __construct($judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0, $jmlHalaman = 0)
   {
-    parent::__construct($judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0);
+    parent::__construct($judul, $penulis, $penerbit, $harga);
     $this->jmlHalaman = $jmlHalaman;
   }
 
@@ -49,6 +46,14 @@ class Komik extends Produk
 
 class Game extends Produk
 {
+  public $waktuMain;
+
+  public function __construct($judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0, $waktuMain = 0)
+  {
+    parent::__construct($judul, $penulis, $penerbit, $harga);
+    $this->waktuMain = $waktuMain;
+  }
+
   public function getInfoProduk()
   {
     $str = " Game : " . parent::getInfoProduk() . " ~ {$this->waktuMain} Jam. ";
