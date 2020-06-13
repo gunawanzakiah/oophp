@@ -2,14 +2,13 @@
 
 class Produk
 {
-  public
+  private
     $judul,
     $penulis,
-    $penerbit;
+    $penerbit,
+    $harga,
+    $diskon = 0;
 
-  protected  $diskon = 0;
-
-  private  $harga;
 
 
   public function __construct($judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0)
@@ -20,6 +19,50 @@ class Produk
     $this->harga = $harga;
   }
 
+  public function setJudul($judul)
+  {
+    $this->judul = $judul;
+  }
+
+  public function getJudul()
+  {
+    return $this->judul;
+  }
+
+  public function setPenulis($penulis)
+  {
+    $this->penulis = $penulis;
+  }
+
+  public function getPenulis()
+  {
+    return $this->penulis;
+  }
+
+  public function setPenerbit($penerbit)
+  {
+    $this->penulis = $penerbit;
+  }
+
+  public function getPenerbit()
+  {
+    return $this->penerbit;
+  }
+
+  public function setDiskon($diskon)
+  {
+    $this->diskon = $diskon;
+  }
+
+  public function getDiskon()
+  {
+    return $this->diskon;
+  }
+
+  public function setHarga($harga)
+  {
+    $this->harga = $harga;
+  }
 
   public function getHarga()
   {
@@ -65,10 +108,7 @@ class Game extends Produk
     $this->waktuMain = $waktuMain;
   }
 
-  public function setDiskon($diskon)
-  {
-    $this->diskon = $diskon;
-  }
+
 
   public function getInfoProduk()
   {
@@ -95,3 +135,7 @@ echo "<hr>";
 
 $produk2->setDiskon(50);
 echo $produk2->getHarga();
+echo "<hr>";
+
+$produk1->setPenulis("Gunawan");
+echo $produk1->getPenulis();
